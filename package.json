@@ -32,6 +32,9 @@
     "@angular/compiler-cli": "^17.3.0",
     "@types/express": "^4.17.17",
     "@types/node": "^18.18.0",
+    "prettier": "^3.2.5",
+    "prettier-plugin-tailwindcss": "^0.5.14",
+    "tailwindcss": "^3.4.3",
     "typescript": "~5.4.2"
   }
 }
