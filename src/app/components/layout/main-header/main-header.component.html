@@ -1,10 +1,15 @@
 <header class="bg-white">
   <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 md:px-8" aria-label="Global">
-    <div class="flex md:flex-1">
+    <div class="flex md:flex-1 items-center">
       <a routerLink="/about" class="-m-1.5 p-1.5">
         <span class="sr-only">Evan Christopher</span>
-        <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="">
+        <app-avatar imageSize="xl" />
       </a>
+      <div class="min-w-0 md:flex hidden pl-3">
+        <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
+          Evan Christopher
+        </h2>
+      </div>
     </div>
     <div class="flex md:hidden">
       <app-main-mobile-navigation-button [(isMenuOpen)]="isMenuOpen" />
