@@ -1,10 +1,12 @@
 import { Component, model } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { AvatarComponent } from '../../media/avatar/avatar.component';
 
 @Component({
   selector: 'app-main-mobile-navigation',
   standalone: true,
   imports: [
+    AvatarComponent,
     RouterLink,
     RouterLinkActive
   ],
