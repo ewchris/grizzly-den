@@ -6,17 +6,19 @@ import { ResumeComponent } from './pages/resume/resume.component';
 export const routes: Routes = [
   {
     path: 'about',
-    title: 'About',
+    title: 'Evan\'s Den - About',
     component: AboutComponent,
     data: { title: 'About' }
   },
   {
     path: 'blog',
+    title: 'Evan\'s Den - Blog',
     component: BlogComponent,
     data: { title: 'Blog' }
   },
   {
     path: 'resume',
+    title: 'Evan\'s Den - Resume',
     component: ResumeComponent,
     data: { title: 'Resume' }
   },
