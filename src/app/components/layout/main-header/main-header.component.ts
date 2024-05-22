@@ -4,6 +4,7 @@ import { MainMobileNavigationComponent } from '../../navigation/main-mobile-navi
 import { MainMobileNavigationButtonComponent } from '../../navigation/main-mobile-navigation-button/main-mobile-navigation-button.component';
 import { AvatarComponent } from '../../media/avatar/avatar.component';
 import { RouterLink } from '@angular/router';
+import { ThemeButtonComponent } from '../../button/theme-button/theme-button.component';
 
 @Component({
   selector: 'app-main-header',
@@ -13,7 +14,8 @@ import { RouterLink } from '@angular/router';
     MainDesktopNavigationComponent,
     MainMobileNavigationComponent,
     MainMobileNavigationButtonComponent,
-    RouterLink
+    RouterLink,
+    ThemeButtonComponent
   ],
   exportAs: 'MainHeaderComponent',
   templateUrl: './main-header.component.html',
