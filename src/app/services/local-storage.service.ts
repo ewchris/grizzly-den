@@ -11,8 +11,12 @@ export class LocalStorageService {
   ) {
     this.storage = isPlatformBrowser(this.platformId) ? localStorage : null;
   }
-  get(key: string): string | null | undefined {
-    return this.storage?.getItem(key);
+  get(key: string): string {
+    const item = this.storage?.getItem(key);
+    if (!item) {
+      return '';
+    } else
+      return item;
   }
   set(key: string, value: string) {
     this.storage?.setItem(key, value);

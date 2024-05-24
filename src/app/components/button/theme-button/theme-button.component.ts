@@ -1,4 +1,4 @@
-import { afterNextRender, Component } from '@angular/core';
+import { afterNextRender, Component, computed, effect, Signal } from '@angular/core';
 import { AppStateService } from '../../../services/app-state.service';
 
 @Component({
@@ -9,24 +9,20 @@ import { AppStateService } from '../../../services/app-state.service';
   styleUrl: './theme-button.component.scss'
 })
 export class ThemeButtonComponent {
-  theme?: string;
-  isDark: boolean = true;
+  isDark: Signal<boolean> = computed(() => this.setTheme(this.appState.theme()));
   constructor(
     private appState: AppStateService
   ) {
     afterNextRender(() => {
       this.initTheme();
-      this.appState.themeChanged.subscribe({
-        next: (response: string) => {
-          this.setTheme(response);
-        }
-      });
+    });
+    effect(() => {
+      this.setTheme(this.appState.theme());
     });
   }
 
   initTheme() {
-    this.theme = this.appState.getTheme() as string;
-    if (!this.theme)
+    if (!this.appState.theme())
       if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         this.appState.updateTheme('dark');
         this.setTheme('dark');
@@ -35,22 +31,17 @@ export class ThemeButtonComponent {
         this.setTheme('light');
       }
     else {
-      this.appState.updateTheme(this.theme);
-      this.setTheme(this.theme);
+      this.appState.updateTheme(this.appState.theme());
+      this.setTheme(this.appState.theme());
     }
   }
 
-  setTheme(theme: string) {
-    if (theme === 'dark') {
-      this.isDark = true;
-    } else {
-      this.isDark = false;
-    }
-    this.theme = this.appState.getTheme() as string;
+  setTheme(theme: string): boolean {
+    return theme == 'dark' ? true : false;
   }
 
   toggleTheme() {
-    if (this.isDark)
+    if (this.isDark())
       this.appState.updateTheme('light');
     else
       this.appState.updateTheme('dark');
