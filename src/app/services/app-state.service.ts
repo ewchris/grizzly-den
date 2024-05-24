@@ -5,7 +5,6 @@ import { LocalStorageService } from './local-storage.service';
   providedIn: 'root'
 })
 export class AppStateService {
-  public themeChanged: EventEmitter<string> = new EventEmitter();
   theme = signal<string>(this.localStorageSvc.get('theme'));
 
   constructor(
@@ -20,6 +19,8 @@ export class AppStateService {
       document.body.classList.remove('light');
       document.body.classList.add('dark');
     }
+
+    this.localStorageSvc.set('theme', mode);
     this.theme.set(mode);
   }
 }

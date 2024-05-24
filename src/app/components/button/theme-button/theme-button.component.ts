@@ -16,23 +16,17 @@ export class ThemeButtonComponent {
     afterNextRender(() => {
       this.initTheme();
     });
-    effect(() => {
-      this.setTheme(this.appState.theme());
-    });
   }
 
   initTheme() {
     if (!this.appState.theme())
       if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         this.appState.updateTheme('dark');
-        this.setTheme('dark');
       } else {
         this.appState.updateTheme('light');
-        this.setTheme('light');
       }
     else {
       this.appState.updateTheme(this.appState.theme());
-      this.setTheme(this.appState.theme());
     }
   }
 
