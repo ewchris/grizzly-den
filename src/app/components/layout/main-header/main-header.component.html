@@ -1,25 +1,31 @@
-<header class="bg-slate-50 dark:bg-slate-800 mb-6">
-  <nav class="mx-auto flex max-w-3xl items-center justify-between md:px-2" aria-label="Global">
-    <div class="flex md:flex-1 items-center">
-      <a routerLink="/about" class="-m-1.5 p-1.5">
-        <span class="sr-only">Evan Christopher</span>
-        <app-avatar imageSize="l" />
-      </a>
-      <div class="min-w-0 md:flex hidden pl-3">
-        <h2
-          class="text-2xl font-bold leading-7 text-slate-900 dark:text-slate-50 sm:truncate sm:text-2xl sm:tracking-tight">
-          Evan Christopher
-        </h2>
-      </div>
+<div class="max-w-full relative bg-slate-100 dark:bg-slate-900">
+  <div class="mx-auto max-w-7xl fixed top-0 left-0 right-0 px-6 py-4 sm:px-6 md:px-6 bg-slate-50 dark:bg-slate-800">
+    <div class="mx-auto max-w-3xl">
+      <header class=" bg-slate-50 dark:bg-slate-800">
+        <nav class="mx-auto flex max-w-3xl items-center justify-between md:px-2" aria-label="Global">
+          <div class="flex md:flex-1 items-center">
+            <a routerLink="/about" class="-m-1.5 p-1.5">
+              <span class="sr-only">Evan Christopher</span>
+              <app-avatar imageSize="l" />
+            </a>
+            <div class="min-w-0 md:flex hidden pl-3">
+              <h2
+                class="text-2xl font-bold leading-7 text-slate-900 dark:text-slate-50 sm:truncate sm:text-2xl sm:tracking-tight">
+                Evan Christopher
+              </h2>
+            </div>
+          </div>
+          <div class="flex md:hidden gap-x-9">
+            <app-theme-button />
+            <app-main-mobile-navigation-button [(isMenuOpen)]="isMenuOpen" />
+          </div>
+          <div class="hidden md:flex">
+            <app-main-desktop-navigation />
+          </div>
+        </nav>
+        <!-- Mobile menu, show/hide based on menu open state. -->
+        <app-main-mobile-navigation [(isMenuOpen)]="isMenuOpen" />
+      </header>
     </div>
-    <div class="flex md:hidden gap-x-9">
-      <app-theme-button />
-      <app-main-mobile-navigation-button [(isMenuOpen)]="isMenuOpen" />
-    </div>
-    <div class="hidden md:flex">
-      <app-main-desktop-navigation />
-    </div>
-  </nav>
-  <!-- Mobile menu, show/hide based on menu open state. -->
-  <app-main-mobile-navigation [(isMenuOpen)]="isMenuOpen" />
-</header>
+  </div>
+</div>
